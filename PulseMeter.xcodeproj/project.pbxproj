@@ -1,0 +1,327 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D4C670F4729DC61DFA73B28 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D5CF19D8119840CBF7D06 /* ContentView.swift */; };
+		5D187753141523BE52EBD9FF /* PulseMeterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A06C7BD5A5ADBFCD630B /* PulseMeterApp.swift */; };
+		B6DFBAE9EE1BE7AD1D07EAB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9342856600042CFA54E571C /* Assets.xcassets */; };
+		E30147DFC70B5BBE0BFB99BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DB6E1DACBB516D0A65DC425 /* Preview Assets.xcassets */; };
+		F56D8313E2FD1B5CA2591F2A /* HeartRateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02CA7DF3FA80A554548793 /* HeartRateMonitor.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		41F536239F5B6298AF5283C2 /* PulseMeter Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PulseMeter Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4554A06C7BD5A5ADBFCD630B /* PulseMeterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseMeterApp.swift; sourceTree = "<group>"; };
+		4D7D5CF19D8119840CBF7D06 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6DB6E1DACBB516D0A65DC425 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8B02CA7DF3FA80A554548793 /* HeartRateMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateMonitor.swift; sourceTree = "<group>"; };
+		F9342856600042CFA54E571C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		5B7C56B7E02FBD35B3FA515E = {
+			isa = PBXGroup;
+			children = (
+				D1E3034C5913E2C64F34668B /* PulseMeter Watch App */,
+				DD5EFE590DF9A6E242C302B8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D1E3034C5913E2C64F34668B /* PulseMeter Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				F9342856600042CFA54E571C /* Assets.xcassets */,
+				4D7D5CF19D8119840CBF7D06 /* ContentView.swift */,
+				8B02CA7DF3FA80A554548793 /* HeartRateMonitor.swift */,
+				4554A06C7BD5A5ADBFCD630B /* PulseMeterApp.swift */,
+				EB1E3FF2CCDAFDE00F945893 /* Preview Content */,
+			);
+			path = "PulseMeter Watch App";
+			sourceTree = "<group>";
+		};
+		DD5EFE590DF9A6E242C302B8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				41F536239F5B6298AF5283C2 /* PulseMeter Watch App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB1E3FF2CCDAFDE00F945893 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6DB6E1DACBB516D0A65DC425 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D5AC9BDE1972B026C36E0341 /* PulseMeter Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACCEBB8535B1AAF8AE84330E /* Build configuration list for PBXNativeTarget "PulseMeter Watch App" */;
+			buildPhases = (
+				D07F605F242DEC0572EF3907 /* Sources */,
+				9FBFC77D82B282E55AB7D57B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PulseMeter Watch App";
+			packageProductDependencies = (
+			);
+			productName = "PulseMeter Watch App";
+			productReference = 41F536239F5B6298AF5283C2 /* PulseMeter Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D1170FE2DF58404B36578676 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = AF99E67ACC97F84DB6E26544 /* Build configuration list for PBXProject "PulseMeter" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 5B7C56B7E02FBD35B3FA515E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = DD5EFE590DF9A6E242C302B8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D5AC9BDE1972B026C36E0341 /* PulseMeter Watch App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9FBFC77D82B282E55AB7D57B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6DFBAE9EE1BE7AD1D07EAB2 /* Assets.xcassets in Resources */,
+				E30147DFC70B5BBE0BFB99BE /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D07F605F242DEC0572EF3907 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D4C670F4729DC61DFA73B28 /* ContentView.swift in Sources */,
+				F56D8313E2FD1B5CA2591F2A /* HeartRateMonitor.swift in Sources */,
+				5D187753141523BE52EBD9FF /* PulseMeterApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3204A53F3F10886F46D6F000 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		3CD007249605DB61AAEDA8C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		67978ACD76AAA2FF77C31404 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "PulseMeter Watch App/PulseMeter.entitlements";
+				DEVELOPMENT_ASSET_PATHS = "\"PulseMeter Watch App/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "PulseMeter Watch App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.javiergil.PulseMeter;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		75FD95AF89BEB78CEA6D81E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "PulseMeter Watch App/PulseMeter.entitlements";
+				DEVELOPMENT_ASSET_PATHS = "\"PulseMeter Watch App/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "PulseMeter Watch App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.javiergil.PulseMeter;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ACCEBB8535B1AAF8AE84330E /* Build configuration list for PBXNativeTarget "PulseMeter Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67978ACD76AAA2FF77C31404 /* Debug */,
+				75FD95AF89BEB78CEA6D81E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AF99E67ACC97F84DB6E26544 /* Build configuration list for PBXProject "PulseMeter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CD007249605DB61AAEDA8C2 /* Debug */,
+				3204A53F3F10886F46D6F000 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D1170FE2DF58404B36578676 /* Project object */;
+}
