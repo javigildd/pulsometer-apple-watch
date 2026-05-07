@@ -34,9 +34,5 @@
 	<array>
 		<string>workout-processing</string>
 	</array>
-	<key>WKRunsIndependentlyOfCompanionApp</key>
-	<true/>
-	<key>WKWatchOnly</key>
-	<true/>
 </dict>
 </plist>
