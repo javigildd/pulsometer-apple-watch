@@ -74,8 +74,9 @@ final class HeartRateMonitor: NSObject, ObservableObject {
 
     func stop() {
         session?.end()
-        builder?.endCollection(withEnd: Date()) { [weak self] _, _ in
-            self?.builder?.finishWorkout { _, _ in }
+        let activeBuilder = builder
+        activeBuilder?.endCollection(withEnd: Date()) { _, _ in
+            activeBuilder?.finishWorkout { _, _ in }
         }
         isRunning = false
         currentHeartRate = 0
