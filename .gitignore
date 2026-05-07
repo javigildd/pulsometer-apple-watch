@@ -4,6 +4,7 @@ DerivedData/
 *.xcuserstate
 *.xcuserdatad/
 xcuserdata/
+**/xcuserdata/
 *.xcscmblueprint
 *.xccheckout
 *.moved-aside
@@ -11,6 +12,10 @@ xcuserdata/
 *.ipa
 *.dSYM.zip
 *.dSYM
+
+# Stale nested project from earlier manual attempt — keep ignored so it
+# does not creep back via Dropbox sync.
+/PulseMeter/
 
 # Swift Package Manager
 .build/

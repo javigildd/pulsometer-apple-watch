@@ -89,8 +89,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = AF99E67ACC97F84DB6E26544 /* Build configuration list for PBXProject "PulseMeter" */;
 			developmentRegion = en;
@@ -269,6 +267,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "PulseMeter Watch App/PulseMeter.entitlements";
 				DEVELOPMENT_ASSET_PATHS = "\"PulseMeter Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 6XTPQ5ZJ4C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "PulseMeter Watch App/Info.plist";
@@ -288,6 +287,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "PulseMeter Watch App/PulseMeter.entitlements";
 				DEVELOPMENT_ASSET_PATHS = "\"PulseMeter Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 6XTPQ5ZJ4C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "PulseMeter Watch App/Info.plist";
