@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Claves que tienes que añadir al Info.plist del target del watchOS app.
+    En Xcode: selecciona el target "PulseMeter Watch App" → pestaña "Info" →
+    pulsa el "+" y añade estas dos claves con su valor de String:
+-->
+<plist version="1.0">
+<dict>
+    <key>NSHealthShareUsageDescription</key>
+    <string>PulseMeter necesita acceso a tu ritmo cardiaco para avisarte cuando salgas de tu rango objetivo.</string>
+
+    <key>NSHealthUpdateUsageDescription</key>
+    <string>PulseMeter guarda una sesión de entrenamiento mientras monitoriza tu ritmo cardiaco.</string>
+</dict>
+</plist>
