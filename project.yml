@@ -2,7 +2,7 @@ name: PulseMeter
 options:
   bundleIdPrefix: com.javiergil
   deploymentTarget:
-    watchOS: "10.0"
+    watchOS: "11.0"
   developmentLanguage: en
   createIntermediateGroups: true
 
@@ -17,7 +17,7 @@ targets:
   PulseMeter Watch App:
     type: application
     platform: watchOS
-    deploymentTarget: "10.0"
+    deploymentTarget: "11.0"
     sources:
       - path: "PulseMeter Watch App"
         excludes:
@@ -52,5 +52,5 @@ targets:
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         GENERATE_INFOPLIST_FILE: "NO"
         SUPPORTS_MACCATALYST: "NO"
-        WATCHOS_DEPLOYMENT_TARGET: "10.0"
+        WATCHOS_DEPLOYMENT_TARGET: "11.0"
         SDKROOT: watchos
