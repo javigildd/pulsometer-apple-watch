@@ -16,11 +16,13 @@ final class HeartRateMonitor: NSObject, ObservableObject {
 
     private let healthStore = HKHealthStore()
     private var session: HKWorkoutSession?
-    private var builder: HKLiveWorkoutBuilder?
+    private var hrQuery: HKAnchoredObjectQuery?
 
     private var lastZone: Zone?
     private var lastAlertDate: Date = .distantPast
-    private let alertCooldown: TimeInterval = 10
+    private var armed: Bool = false
+    private let repeatAlertInterval: TimeInterval = 25
+    private let crossingCooldown: TimeInterval = 5
 
     func start() {
         Task { await requestAuthAndStart() }
@@ -30,57 +32,75 @@ final class HeartRateMonitor: NSObject, ObservableObject {
         guard HKHealthStore.isHealthDataAvailable() else { return }
 
         let hrType = HKQuantityType(.heartRate)
-        let typesToRead: Set<HKObjectType> = [hrType, HKObjectType.activitySummaryType()]
+        let typesToRead: Set<HKObjectType> = [hrType]
         let typesToShare: Set<HKSampleType> = [HKQuantityType.workoutType()]
 
         do {
             try await healthStore.requestAuthorization(toShare: typesToShare, read: typesToRead)
-            try startWorkout()
+            try startSession()
+            startHeartRateQuery()
+            isRunning = true
         } catch {
             print("PulseMeter: auth/start error: \(error)")
         }
     }
 
-    private func startWorkout() throws {
+    private func startSession() throws {
         let config = HKWorkoutConfiguration()
         config.activityType = .other
         config.locationType = .unknown
 
         let session = try HKWorkoutSession(healthStore: healthStore, configuration: config)
-        let builder = session.associatedWorkoutBuilder()
-        builder.dataSource = HKLiveWorkoutDataSource(
-            healthStore: healthStore,
-            workoutConfiguration: config
+        session.delegate = self
+        session.startActivity(with: Date())
+        self.session = session
+    }
+
+    private func startHeartRateQuery() {
+        let hrType = HKQuantityType(.heartRate)
+        let predicate = HKQuery.predicateForSamples(
+            withStart: Date(),
+            end: nil,
+            options: .strictStartDate
         )
 
-        session.delegate = self
-        builder.delegate = self
+        let query = HKAnchoredObjectQuery(
+            type: hrType,
+            predicate: predicate,
+            anchor: nil,
+            limit: HKObjectQueryNoLimit
+        ) { [weak self] _, samples, _, _, _ in
+            self?.process(samples: samples)
+        }
+        query.updateHandler = { [weak self] _, samples, _, _, _ in
+            self?.process(samples: samples)
+        }
 
-        self.session = session
-        self.builder = builder
+        healthStore.execute(query)
+        self.hrQuery = query
+    }
 
-        let startDate = Date()
-        session.startActivity(with: startDate)
-        builder.beginCollection(withStart: startDate) { [weak self] success, error in
-            Task { @MainActor in
-                if success {
-                    self?.isRunning = true
-                } else if let error {
-                    print("PulseMeter: beginCollection error: \(error)")
-                }
-            }
+    private nonisolated func process(samples: [HKSample]?) {
+        guard let qs = samples as? [HKQuantitySample], !qs.isEmpty else { return }
+        let unit = HKUnit.count().unitDivided(by: .minute())
+        let sorted = qs.sorted { $0.endDate < $1.endDate }
+        guard let latest = sorted.last?.quantity.doubleValue(for: unit) else { return }
+        Task { @MainActor [weak self] in
+            self?.handleNewHR(latest)
         }
     }
 
     func stop() {
         session?.end()
-        let activeBuilder = builder
-        activeBuilder?.endCollection(withEnd: Date()) { _, _ in
-            activeBuilder?.finishWorkout { _, _ in }
+        session = nil
+        if let query = hrQuery {
+            healthStore.stop(query)
+            hrQuery = nil
         }
         isRunning = false
         currentHeartRate = 0
         lastZone = nil
+        armed = false
         zone = .inRange
     }
 
@@ -96,37 +116,49 @@ final class HeartRateMonitor: NSObject, ObservableObject {
         defer {
             zone = newZone
             lastZone = newZone
+            if newZone == .inRange || newZone == .above { armed = true }
         }
 
-        guard let previous = lastZone, previous != newZone else { return }
+        // First sample: just establish baseline.
+        guard let previous = lastZone else { return }
 
         let now = Date()
-        guard now.timeIntervalSince(lastAlertDate) >= alertCooldown else { return }
+        let timeSinceLast = now.timeIntervalSince(lastAlertDate)
+        let zoneChanged = (newZone != previous)
+
+        let shouldFire: Bool = {
+            switch newZone {
+            case .inRange:
+                return false
+            case .above:
+                if zoneChanged { return timeSinceLast >= crossingCooldown }
+                return timeSinceLast >= repeatAlertInterval
+            case .below:
+                guard armed else { return false }
+                if zoneChanged { return timeSinceLast >= crossingCooldown }
+                return timeSinceLast >= repeatAlertInterval
+            }
+        }()
+
+        guard shouldFire else { return }
 
         switch newZone {
-        case .above:
-            playDoubleHaptic()
-            lastAlertDate = now
-        case .below:
-            // Only alert when slowing down from running, not when warming up.
-            if previous == .inRange || previous == .above {
-                playSingleHaptic()
-                lastAlertDate = now
-            }
-        case .inRange:
-            break
+        case .above:   playDoubleHaptic()
+        case .below:   playSingleHaptic()
+        case .inRange: break
         }
+        lastAlertDate = now
     }
 
     private func playSingleHaptic() {
-        WKInterfaceDevice.current().play(.notification)
+        WKInterfaceDevice.current().play(.start)
     }
 
     private func playDoubleHaptic() {
         let device = WKInterfaceDevice.current()
-        device.play(.notification)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
-            device.play(.notification)
+        device.play(.failure)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            device.play(.failure)
         }
     }
 }
@@ -144,25 +176,5 @@ extension HeartRateMonitor: HKWorkoutSessionDelegate {
         didFailWithError error: Error
     ) {
         print("PulseMeter: session failed: \(error)")
-    }
-}
-
-extension HeartRateMonitor: HKLiveWorkoutBuilderDelegate {
-    nonisolated func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) {}
-
-    nonisolated func workoutBuilder(
-        _ workoutBuilder: HKLiveWorkoutBuilder,
-        didCollectDataOf collectedTypes: Set<HKSampleType>
-    ) {
-        let hrType = HKQuantityType(.heartRate)
-        guard collectedTypes.contains(hrType) else { return }
-        guard let stats = workoutBuilder.statistics(for: hrType) else { return }
-
-        let unit = HKUnit.count().unitDivided(by: .minute())
-        guard let bpm = stats.mostRecentQuantity()?.doubleValue(for: unit) else { return }
-
-        Task { @MainActor [weak self] in
-            self?.handleNewHR(bpm)
-        }
     }
 }
