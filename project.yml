@@ -30,6 +30,7 @@ targets:
         CFBundleShortVersionString: "1.0"
         CFBundleVersion: "1"
         WKApplication: true
+        WKWatchOnly: true
         NSHealthShareUsageDescription: "PulseMeter necesita acceso a tu ritmo cardiaco para avisarte cuando salgas de tu rango objetivo."
         NSHealthUpdateUsageDescription: "PulseMeter guarda una sesión de entrenamiento mientras monitoriza tu ritmo cardiaco."
         WKBackgroundModes:
